@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+	<meta charset=utf-8 name="viewport" content="width=device-width, initial-scale=1">
+	<title>K1llerk1d's Offical Fanclub</title>
+	<link rel="stylesheet" href="css.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script type="text/javascript" src="script.js"></script>
+
+	<style>
+        @media (max-width: 1100px) {
+        	section {
+        		width: 90%;
+        		min-height: 1em;
+  				min-width: 1em;
+  				margin: auto;
+        	}
+
+        	h1 {
+        		line-height: 1em;
+        	}
+        	h2 {
+        		line-height: 1em;
+        	}
+
+        	aside {
+        		width: 100%;
+        	}
+
+        	header {
+        		width: 100%;
+  				min-height: 1em;
+  				min-width: 1em;
+  				font-size: 1em;
+			}
+
+			footer {
+				width: 100%;
+			}
+
+			#pentaback-frame, #pentareturn-frame, #penta-frame {
+				text-align: center;
+				vertical-align: middle;
+				min-width: 500px;
+				min-height: 400px;
+				background-color: #FF9693;
+  				opacity: 0.95;
+			}
+
+        	.bigitem, .smallitem {
+        		margin: 5px;
+        		width: 90%;
+        		-webkit-flex: 1; 
+   				flex: 1;
+        	}
+
+        	.first {
+        		display: none;
+        	}
+
+            .flexcontainer {
+				-webkit-flex-direction: column;
+				flex-direction: column;
+				margin: 5px;
+        	}
+
+        	.champ-img {
+				float: left;
+			}
+
+			#loading-img {
+				width: 100%;
+			}
+
+			#loading-image {
+				float: left;
+				margin: none;
+			}
+
+			#item-img1 {
+				margin-left: 60px;
+			}
+			.item-img {
+				margin-top: 10px;
+				float: none;
+				height: auto; 
+				width: auto; 
+				max-width: 30px; 
+				max-height: 30px;
+			}
+
+			.spell1-img-div {
+				float: left;
+				margin-right: 1em;
+			}
+		}
+    </style>
+</head>
+<body>
+<div id="wrapper">
+	<div id="header">
+		<header class="flexcontainer" class="center">
+			<h1 id"home-header">K1llerk1d's Offical Fanclub</h1>
+			<img class="first" id"home-header" src="ekko.png" style="width:236px;height:164px;">
+		</header>
+	</div>
+	<div id="content">
+		<div class="flexcontainer">
+			<aside class"smallitem" id="leftbar">
+				<section id="home">
+					<h2>Home</h2>
+				</section>
+				<section id="about">
+					<h2>About k1llerk1d</h2>
+				</section>
+				<section id="video">
+					<h2>Videos</h2>
+				</section>
+				<section id="feedleft">
+					<h2>Give Feedback</h2>
+				</section>
+				<section id="shopleft">
+					<h2>Webshop</h2>
+				</section>
+				<section id="apileft">
+					<h2>K1llerk1ds Stats</h2>
+					<h3 class="api-menu" id="match-h">Match History</h3>
+					<h3 class="api-menu" id="compare-s">Compare Stats</h3>
+				</section>
+			</aside>
+			<section class="bigitem" id="main-section">
+				<article class="centertext" id="api2-article">
+					<h1 id="article-title">
+						How do you compare with K1llerk1d?
+					</h1>
+					<p id="api2-body">
+						<form id="sum-form" name="sum-form">
+							Enter EU-West summoner name: 
+							<input type="text" name="sum-name" id="sum-name">
+							<input type="submit" value="Go">
+						</form>
+						<table id="api-table" style="width:100%">
+
+							<tr id="api-t-head">
+								<th class="api-table-h" scope="col" style="width: 33%"></th>
+								<th class="api-table-h" scope="col" style="width: 33%">K1llerk1d</th>
+								<th id="you-name" class="api-table-h" scope="col" style="width: 33%">404</th>
+							</tr>
+
+						  	<tr class="api-stats">
+								<th class="api-stats" scope="row">Games Played:</th>
+								<td class="api-stats" id="ki-gp"></td>
+								<td class="api-stats" id="you-gp"></td>
+							</tr>
+
+							<tr class="api-stats">
+								<th class="api-stats" scope="row">Games Won:</th>
+								<td class="api-stats" id="ki-gw"></td>
+								<td class="api-stats" id="you-gw"></td>
+							</tr>
+
+							<tr class="api-stats">
+								<th class="api-stats" scope="row">Win %:</th>
+								<td class="api-stats" id="ki-wp"></td>
+								<td class="api-stats" id="you-wp"></td>
+							</tr>
+							<tr class="api-stats">
+								<th class="api-stats" scope="row">Average Kills:</th>
+								<td class="api-stats" id="ki-kill"></td>
+								<td class="api-stats" id="you-kill"></td>
+							</tr>
+							<tr class="api-stats">
+								<th class="api-stats" scope="row">Average Deaths:</th>
+								<td class="api-stats" id="ki-death"></td>
+								<td class="api-stats" id="you-death"></td>
+							</tr>
+							<tr class="api-stats">
+								<th class="api-stats" scope="row">Average Assists:</th>
+								<td class="api-stats" id="ki-a"></td>
+								<td class="api-stats" id="you-a"></td>
+							</tr>
+							<tr class="api-stats">
+								<th class="api-stats" scope="row">Average KDA:</th>
+								<td class="api-stats" id="ki-kda"></td>
+								<td class="api-stats" id="you-kda"></td>
+							</tr>
+							<tr class="api-stats">
+								<th class="api-stats" scope="row">PentaKills:</th>
+								<td class="api-stats" id="ki-pk"></td>
+								<td class="api-stats" id="you-pk"></td>
+							</tr>
+						</table>
+					</p>
+				</article>
+				<article id="api-article">
+					<h1 id="article-title">
+						Last 10 games played:
+					</h1>
+					<p id="api-body">
+
+					</p>
+				</article>
+				<article class="centertext" id="home-article">
+					<h1 id="article-title">
+						Welcome to K1llerk1d's Fanclub
+					</h1>
+					<p>
+						K1llerk1d is probably the best Gold ranked League Of Legends player in the World.
+					</p>
+				</article>
+				<article class="centertext" id="about-article">
+					<h1 id="article-title">
+						About K1llerk1d.
+					</h1>
+					<p>
+						K1llerk1d goes by a lot of different names, the most common one's are God and Pentakid.
+					</p>
+				</article>
+				<article class="centertext" id="video-article">
+					<h1 id="article-title">
+						Watch K1llerk1d's Highlights!
+					</h1>
+					<p>
+						<button id="pentakid" type="button"><strong>They call him Pentakid.
+						</strong></button>
+						<button id="penta-back" type="button"><strong>The Pentakid Strikes Back.
+						</strong></button>
+						<button id="penta-return" type="button"><strong>Return of the Pentakid.
+						</strong></button>
+						<div id="penta-frame">
+						<iframe width="480" height="378" src="http://plays.tv/embeds/569fc4f631c545ca9b?_t=eyJ0eXBlIjoiZnJvbSIsImxvZ2luX2lkIjoiZTdhZWUyMTQ0Nzg0ZDg3OThhNmMwNzE3MzVmZDlkNzMiLCJjb2hvcnRfaWQiOiI2ZjQ4ODUzY2U2MWI2NDQ4YTI2MzQ0YzBkNWIzYjZiZCIsImxvY2F0aW9uIjoiU2hhcmVWaWRlb01vZC5TaGFyZVZpZGVvTW9kLmVtYmVkLmlmcmFtZSIsImxpbmtfaWQiOiJzaGFyZV9tZW51IiwiZXZlbnRfaWQiOiIiLCJnYW1lX2lkIjoiYjE3OTU4NWM2YjY4YTI3OTFlZWE0YTFhZDNkN2VmNzIiLCJmZWVkX3R5cGUiOiJyZXBsYXkiLCJmZWVkX2lkIjoiNTY5ZmM0ZjYzMWM1NDVjYTliIiwiY2xpY2tlZF90eXBlIjoic2hhcmVfZW1iZWQiLCJjbGlja2VkX2lkIjoiZW1iZWRfdmlkZW8ifQ%3D%3D" frameborder="0" allowfullscreen></iframe>
+						</div>
+						<div id="pentaback-frame">
+						<iframe width="480" height="378" src="http://plays.tv/embeds/5695a03e4e7c878802?_t=eyJ0eXBlIjoiZnJvbSIsImxvZ2luX2lkIjoiZTdhZWUyMTQ0Nzg0ZDg3OThhNmMwNzE3MzVmZDlkNzMiLCJjb2hvcnRfaWQiOiI2ZjQ4ODUzY2U2MWI2NDQ4YTI2MzQ0YzBkNWIzYjZiZCIsImxvY2F0aW9uIjoiU2hhcmVWaWRlb01vZC5TaGFyZVZpZGVvTW9kLmVtYmVkLmlmcmFtZSIsImxpbmtfaWQiOiJzaGFyZV9tZW51IiwiZXZlbnRfaWQiOiIiLCJnYW1lX2lkIjoiYjE3OTU4NWM2YjY4YTI3OTFlZWE0YTFhZDNkN2VmNzIiLCJmZWVkX3R5cGUiOiJyZXBsYXkiLCJmZWVkX2lkIjoiNTY5NWEwM2U0ZTdjODc4ODAyIiwiY2xpY2tlZF90eXBlIjoic2hhcmVfZW1iZWQiLCJjbGlja2VkX2lkIjoiZW1iZWRfdmlkZW8ifQ%3D%3D" frameborder="0" allowfullscreen></iframe>
+						</div>
+						<div id="pentareturn-frame">
+						<iframe width="480" height="378" src="http://plays.tv/embeds/56a54b4192bc76a38e?_t=eyJ0eXBlIjoiZnJvbSIsImxvZ2luX2lkIjoiZTdhZWUyMTQ0Nzg0ZDg3OThhNmMwNzE3MzVmZDlkNzMiLCJjb2hvcnRfaWQiOiI2ZjQ4ODUzY2U2MWI2NDQ4YTI2MzQ0YzBkNWIzYjZiZCIsImxvY2F0aW9uIjoiU2hhcmVWaWRlb01vZC5TaGFyZVZpZGVvTW9kLmVtYmVkLmlmcmFtZSIsImxpbmtfaWQiOiJzaGFyZV9tZW51IiwiZXZlbnRfaWQiOiIiLCJnYW1lX2lkIjoiYjE3OTU4NWM2YjY4YTI3OTFlZWE0YTFhZDNkN2VmNzIiLCJmZWVkX3R5cGUiOiJyZXBsYXkiLCJmZWVkX2lkIjoiNTZhNTRiNDE5MmJjNzZhMzhlIiwiY2xpY2tlZF90eXBlIjoic2hhcmVfZW1iZWQiLCJjbGlja2VkX2lkIjoiZW1iZWRfdmlkZW8ifQ%3D%3D" frameborder="0" allowfullscreen></iframe>
+						</div>
+					</p>
+				</article>
+				<article class="centertext" id="shop-article">
+					<h1 id="article-title">
+						Webshop
+					</h1>
+					<p>
+						<table id="shop-table">
+
+							<tr id="shop-t">
+							<th id="shop-t" scope="row">K1llerk1d Shirt</th>
+							<td id="shop-t">$10.00</td>
+							<td id="shop-t"><button id="shirt" type="button"><b>Add to cart!</b></button></td>
+							</tr>
+
+							<tr id="shop-t">
+							<th id="shop-t" scope="row">One game with K1llerk1d</th>
+							<td id="shop-t">$25.00</td>
+							<td id="shop-t"><button id="game" type="button"><b>Add to cart!</b></button></td>
+							</tr>
+
+							<tr id="shop-t">
+							<th id="shop-t" scope="row">Autograph</th>
+							<td id="shop-t">$50.00</td>
+							<td id="shop-t"><button id="agraph" type="button"><b>Add to cart!</b></button></td>
+							</tr>
+
+							<tr id="shop-t">
+							<th id="shop-t" scope="row">Real life meeting</th>
+							<td id="shop-t">$100.00</td>
+							<td id="shop-t"><button id="meet" type="button"><b>Add to cart!</b></button></td>
+							</tr>
+
+							<tr id="shop-t">
+							<th id="shop-t" scope="row">Sex</th>
+							<td id="shop-t">$-10.00</td>
+							<td id="shop-t"><button id="sex" type="button"><b>Add to cart!</b></button></td>
+							</tr>
+
+						</table>
+					</p>
+				</article>
+				<article class="centertext" id="feed-article">
+					<h1 id="article-title">
+						Give Feedback!
+					</h1>
+					<p id="feed-p">
+						<form id="feed-form" name="feed-form">
+							Enter feedback <input type="text" name="feedback" id="feedback">
+							<input type="submit" value="Send Feedback">
+						</form>
+					</p>
+				</article>
+			</section>
+			<aside class"smallitem" id="rightbar">
+				<section id="shopright">
+					<h2>Webshop</h2>
+				</section>
+				<section id="feedright">
+					<h2>Give Feedback</h2>
+				</section>
+				<section id="feed-text">
+					<textarea readonly rows="20" cols="19" name="addfeed" id="addfeed">
+						 
+					</textarea>
+				</section>
+				<section id="shop-cart">
+					<table>
+						<caption><b>Shopping Cart</b></caption>
+
+						<tr id="table-head">
+						<th scope="col">Item</th>
+						<th scope="col">Quantity</th>
+						<th scope="col">Price</th>
+						</tr>
+
+						<tr id="cart-shirt">
+						<th scope="row">Shirt</th>
+						<td id="cart-shirt-a">1</td>
+						<td>$<var id="var-shirt">10</var>.00</td>
+						<td class="tdButton" id="td--shirt"><b>+</b></td>
+						<td class="tdButton" id="td-shirt"><b>-</b></td>
+						</tr>
+
+						<tr id="cart-game">
+						<th scope="row">Game</th>
+						<td id="cart-game-a">1</td>
+						<td>$<var id="var-game">25</var>.00</td>
+						<td class="tdButton" id="td--game"><b>+</b></td>
+						<td class="tdButton" id="td-game"><b>-</b></td>
+						</tr>
+
+						<tr id="cart-graph">
+						<th scope="row">Autograph</th>
+						<td id="cart-graph-a">1</td>
+						<td>$<var id="var-graph">50</var>.00</td>
+						<td class="tdButton" id="td--graph"><b>+</b></td>
+						<td class="tdButton" id="td-graph"><b>-</b></td>
+						</tr>
+
+						<tr id="cart-meet">
+						<th scope="row">Meeting</th>
+						<td id="cart-meet-a">1</td>
+						<td>$<var id="var-meet">100</var>.00</td>
+						<td class="tdButton" id="td--meet"><b>+</b></td>
+						<td class="tdButton" id="td-meet"><b>-</b></td>
+						</tr>
+
+						<tr id="cart-sex">
+						<th scope="row">Sex</th>
+						<td id="cart-sex-a">1</td>
+						<td>$<var id="var-sex">-10</var>.00</td>
+						<td class="tdButton" id="td--sex"><b>+</b></td>
+						<td class="tdButton" id="td-sex"><b>-</b></td>
+						</tr>
+
+						<tr id="total">
+						<th scope="row">Total:</th>
+						<td id="total-q"></td>
+						<td id="total-price">$<var id="var-total"></var>.00</td>
+						</tr>
+
+					</table>
+				</section>
+			</aside>
+		</div>
+	</div>
+	<div class="center" id="footer">
+		<footer>
+			<h3>Made by Niclas Ivarsson Rudman.</h3>
+		</footer>
+	</div>
+</div>
+</body>
+</html>
